@@ -128,7 +128,7 @@ function App() {
         <div className="text-center animate-fade-in">
           <div className="flex items-center justify-center mb-8">
             <div className="bg-gradient-to-r from-indigo-500 to-purple-600  rounded-full shadow-xl">
-              <img src="src/assets/selftakecare1.svg" alt="SelfTakeCare Logo" className="h-56 w-58" />
+              <img src="https://ucarecdn.com/dae78989-1a88-4498-9fec-2e683eed94dc/selftakecare1.svg" alt="SelfTakeCare Logo" className="h-56 w-58" />
             </div>
           </div>
           <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
