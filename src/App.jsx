@@ -127,8 +127,8 @@ function App() {
         {/* Header */}
         <div className="text-center animate-fade-in">
           <div className="flex items-center justify-center mb-8">
-            <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-5 rounded-full shadow-xl">
-              <Sparkles className="h-16 w-16 text-white" />
+            <div className="bg-gradient-to-r from-indigo-500 to-purple-600  rounded-full shadow-xl">
+              <img src="/selftakecare.svg" alt="SelfTakeCare Logo" className="h-56 w-56" />
             </div>
           </div>
           <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
@@ -297,7 +297,7 @@ function App() {
         <div className="animate-slide-up delay-900 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-10 text-white text-center max-w-4xl mx-auto">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">Get Early Access</h3>
           <p className="text-xl mb-8 opacity-90">
-            Join thousands of beauty professionals and enthusiasts who are already signed up for exclusive early access to TakeSelfCare!
+            Join thousands of beauty professionals and enthusiasts who are already signed up for exclusive early access to SelfTakeCare!
           </p>
           
           {/* Success/Error Message */}
@@ -364,6 +364,7 @@ function App() {
               <div>
                 <p className="font-semibold text-gray-800">Phone</p>
                 <p className="text-gray-600">+917499405050</p>
+                <p className="text-gray-600">+919359798819</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -408,7 +409,7 @@ function App() {
 
         {/* Footer */}
         <div className="animate-fade-in delay-1200 text-center text-gray-500 border-t border-gray-200 pt-8">
-          <p className="text-lg">&copy; 2024 TakeSelfCare Platform. All rights reserved.</p>
+          <p className="text-lg">&copy; 2025 SelfTakeCare Platform. All rights reserved.</p>
           <p className="mt-2">Transforming the beauty industry, one connection at a time.</p>
         </div>
 
