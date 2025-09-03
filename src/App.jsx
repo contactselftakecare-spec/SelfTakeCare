@@ -16,15 +16,22 @@ function App() {
   const [message, setMessage] = useState('')
   const [messageType, setMessageType] = useState('') // 'success' or 'error'
 
+  // Utility function to change launch date (you can call this from browser console if needed)
+  const changeLaunchDate = (year, month, day, hour = 0, minute = 0) => {
+    const newLaunchDate = new Date(year, month - 1, day, hour, minute, 0)
+    localStorage.setItem('launchDate', newLaunchDate.toISOString())
+    window.location.reload() // Reload to apply new date
+  }
+
   // Firebase configuration - replace with your actual config
   const firebaseConfig = {
-    apiKey: "AIzaSyDGvcw4wFJg5AQAPS_wUg8-dc23VfgvLaM",
-    authDomain: "emailcollection-dee30.firebaseapp.com",
-    projectId: "emailcollection-dee30",
-    storageBucket: "emailcollection-dee30.firebasestorage.app",
-    messagingSenderId: "4458614008",
-    appId: "1:4458614008:web:689c3845999326fe157f0d",
-    measurementId: "G-KE9VGR8JSB"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID,
+    measurementId: import.meta.env.VITE_MEASUREMENT_ID
   };
   
   // Initialize Firebase
@@ -32,10 +39,20 @@ function App() {
   const db = getFirestore(app);
 
   useEffect(() => {
-    // Set launch date (45 days from now)
-    const launchDate = new Date()
-    launchDate.setDate(launchDate.getDate() + 9)
-
+    // Get launch date from localStorage or set a default fixed date
+    let launchDate
+    const storedLaunchDate = localStorage.getItem('launchDate')
+    
+    if (storedLaunchDate) {
+      launchDate = new Date(storedLaunchDate)
+    } else {
+      // Set a default fixed launch date (you can change this to your actual launch date)
+      // Format: Year, Month (0-indexed), Day, Hour, Minute
+      launchDate = new Date(2025, 8, 13, 0, 0, 0) // September 13, 2025 at midnight
+      // Store it in localStorage for persistence
+      localStorage.setItem('launchDate', launchDate.toISOString())
+    }
+    
     const timer = setInterval(() => {
       const now = new Date().getTime()
       const distance = launchDate.getTime() - now
@@ -71,7 +88,6 @@ function App() {
 
     try {
       console.log('Adding email to Firebase...')
-      
       // Check if email already exists
       const emailQuery = query(collection(db, 'subscribers'), where('email', '==', email.toLowerCase().trim()));
       const emailSnapshot = await getDocs(emailQuery);
