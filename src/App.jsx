@@ -48,7 +48,7 @@ function App() {
     } else {
       // Set a default fixed launch date (you can change this to your actual launch date)
       // Format: Year, Month (0-indexed), Day, Hour, Minute
-      launchDate = new Date(2025, 8, 13, 0, 0, 0) // September 13, 2025 at midnight
+      launchDate = new Date(2025, 8, 21, 0, 0, 0) // September 13, 2025 at midnight
       // Store it in localStorage for persistence
       localStorage.setItem('launchDate', launchDate.toISOString())
     }
